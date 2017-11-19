@@ -28,4 +28,8 @@ export class TodoListService {
         return this.storage.destroy(item);
     }
 
+    saveItem(changes, item) {
+        return this.storage.put(item, changes);
+    }
+
 }

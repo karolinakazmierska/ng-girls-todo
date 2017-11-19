@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-input',
   template: `
     <input [value]='title'
             (keyup.enter)="changeTitle(inputElement.value)"
+            class="todo-input"
             #inputElement>
 
     <button class="btn" (click)="changeTitle(inputElement.value)">
@@ -15,7 +16,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class InputComponent implements OnInit {
-    title: string = 'Enter your task';
+    @Input() title: string = 'Enter your task';
     @Output() submit: EventEmitter<string> = new EventEmitter();
 
   constructor() {
